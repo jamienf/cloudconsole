@@ -7,4 +7,11 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :band do
+    sequence(:name) {|n| "Number #{n} Band"}
+    bio "This band is wonderful!"
+    genre "Punk"
+
+    user
+  end
 end
