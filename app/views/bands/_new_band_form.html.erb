@@ -1,0 +1,29 @@
+<% if @band.errors.any? %>
+  <%  @band.errors.full_messages.each do |msg| %>
+    <li>  <%= msg %>  </li>
+  <% end %>
+<% end %>
+
+
+<%= form_for @band do |f| %>
+
+<div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div>
+  <%= f.label :bio %>
+  <%= f.text_area :bio %>
+</div>
+
+<div>
+  <%= f.label :genre %>
+  <%= f.text_area :genre %>
+</div>
+
+<p>
+  <%= f.submit "Submit Band" %>
+</p>
+
+<% end %>

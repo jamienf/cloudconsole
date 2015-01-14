@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature "a registered user views all bands", %q(
 As a user
 I want to view all bands

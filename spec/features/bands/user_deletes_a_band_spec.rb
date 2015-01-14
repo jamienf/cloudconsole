@@ -1,7 +1,6 @@
 require "rails_helper"
 
 feature "a user deletes a band", %q(
-
 As a user
 I want to delete one of my own bands
 So that no one can see my band
