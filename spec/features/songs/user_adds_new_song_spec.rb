@@ -6,10 +6,10 @@ I want to add a new song
 So that we can create a new hit song
 
 Acceptance Criteria
-[ ] I must be able to add a new song from my bands page
+[X] I must be able to add a new song from my bands page
 [ ] I must not be able to add a song to another bands page
-[ ] I must be presented with errors if the form is filled out incorrectly
-[ ] I must provide a Title and a Tempo.
+[X] I must be presented with errors if the form is filled out incorrectly
+[X] I must provide a Title and a Tempo.
 [ ] I optionally can make the song public or private and an image
 } do
 

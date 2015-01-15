@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature 'user creates new band', %Q{
 As a registered user
 I want to create a new band
