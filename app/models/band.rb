@@ -1,6 +1,7 @@
 class Band < ActiveRecord::Base
   has_many :bandmembers
   has_many :users, through: :bandmembers
+  has_many :songs
 
   validates :name,
     presence: true
