@@ -25,16 +25,4 @@ Acceptance Criteria
     expect(page).to have_content "Your band has been successfully deleted."
     expect(page).to_not have_content @band1.name
   end
-
-  scenario "a user tries to delete another user's band" do
-
-    band1 = FactoryGirl.create(:band)
-    band2 = FactoryGirl.create(:band)
-
-    sign_in_as(band1.user)
-
-    visit band_path(band2)
-
-    expect(page).to_not have_content "Delete band"
-  end
 end

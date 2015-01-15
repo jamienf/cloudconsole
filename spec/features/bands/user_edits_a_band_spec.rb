@@ -46,15 +46,4 @@ Acceptance Criteria
       expect(page).to_not have_content "Your band has been successfully updated."
 
     end
-
-    scenario "user unsuccessfully tries to edit another user's band" do
-      band1 = FactoryGirl.create(:band)
-      band2 = FactoryGirl.create(:band)
-
-      sign_in_as(band1.user)
-
-      visit playlist_path(band2)
-
-      expect(page).to_not have_content "Edit Playlist"
-    end
   end
