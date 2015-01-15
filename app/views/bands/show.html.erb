@@ -3,3 +3,4 @@
 <p><%= @band.genre %></p>
 
 <%= link_to "Edit Band", edit_band_path(@band) %>
+<%= link_to "Delete Band", band_path(@band), method: :delete %>

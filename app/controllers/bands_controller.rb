@@ -36,6 +36,14 @@ class BandsController < ApplicationController
       flash[:alert] = "Please fill out the forms correctly."
     end
   end
+
+  def destroy
+    @band = Band.find(params[:id])
+    @band.destroy
+    flash[:notice] = "Your band has been successfully deleted."
+    redirect_to root_path
+  end
+
   private
 
   def band_params
