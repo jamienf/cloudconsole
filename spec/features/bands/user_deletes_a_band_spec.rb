@@ -6,21 +6,24 @@ I want to delete one of my own bands
 So that no one can see my band
 
 Acceptance Criteria
-[ ] I must be able to delete my band from the individual band page
+[X] I must be able to delete my band from the individual band page
 [ ] I must not be able to delete someone else's band
 ) do
 
+  before :each do
+    @user = FactoryGirl.create(:user)
+    @band1 = FactoryGirl.create(:band)
+    @band2 = FactoryGirl.create(:band)
+  end
+
   scenario "a user deletes a band successfully" do
+    sign_in_as(@user)
 
-    band = FactoryGirl.create(:band)
+    click_link @band1.name
 
-    sign_in_as(band.user)
-
-    click_link band.name
-
-    click_link "Delete band"
+    click_link "Delete Band"
     expect(page).to have_content "Your band has been successfully deleted."
-    expect(page).to_not have_content band.name
+    expect(page).to_not have_content @band1.name
   end
 
   scenario "a user tries to delete another user's band" do
