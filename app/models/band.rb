@@ -6,7 +6,8 @@ class Band < ActiveRecord::Base
     presence: true
 
   validates :bio,
-    presence: true
+    presence: true,
+    length: { minimum: 1, maximum: 300 }
 
   validates :genre,
     presence: true
