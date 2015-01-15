@@ -32,25 +32,25 @@ Acceptance Criteria
     expect(page).to have_content song.tempo
   end
 
-  scenario "a band member adds a song with bad validations", focus: true do
+  scenario "a band member adds a song with bad validations" do
     user = FactoryGirl.create(:user)
     band = FactoryGirl.create(:band)
     song = FactoryGirl.create(:song)
     sign_in_as(user)
 
-    click_link band.title
+    click_link band.name
     click_link "Add New Song"
 
-    expect(page).to_have content "Fill out the form below to add a new song"
+    expect(page).to have_content "Fill out the form below to add a new song"
     fill_in "Tempo", with: song.title
     click_button "Submit Song"
 
     expect(page).to have_content "Title can't be blank"
-    expect(page).to have_content "Tempo must be numberical"
+    expect(page).to have_content "Tempo is not a number"
 
     fill_in "Title", with: song.title
     fill_in "Tempo", with: "1000"
     click_button "Submit Song"
-    expect(page).to have_content "Tempo cannot exceed 500"
+    expect(page).to have_content "Tempo must be less than 600"
   end
 end
