@@ -1,0 +1,23 @@
+<% if @song.errors.any? %>
+  <%  @song.errors.full_messages.each do |msg| %>
+    <li>  <%= msg %>  </li>
+  <% end %>
+<% end %>
+
+<%= form_for [@band, @song] do |f| %>
+
+<div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</div>
+
+<div>
+  <%= f.label :tempo %>
+  <%= f.text_field :tempo %>
+</div>
+
+<p>
+  <%= f.submit "Update Song" %>
+</p>
+
+<% end %>
