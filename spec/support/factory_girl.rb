@@ -12,4 +12,10 @@ FactoryGirl.define do
     bio "This band is wonderful!"
     genre "Punk"
   end
+
+  factory :song do
+    sequence(:title) {|n| "#{n + 1} bottles of beer"}
+    tempo "180"
+    band
+  end
 end
