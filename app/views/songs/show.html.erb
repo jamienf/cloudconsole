@@ -1,4 +1,5 @@
 <h2><%= @song.title %></h2>
 <p><%= @song.tempo %></p>
 
+<%= link_to "Edit Song", edit_band_song_path(@band, @song) %>
 <%= link_to "Delete Song", band_song_path(@band, @song), method: :delete %>
