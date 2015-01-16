@@ -8,3 +8,8 @@
 <br>
 
 <%= link_to "Add New Song", new_band_song_path(@band) %>
+
+<% @songs.each do |song| %>
+  <br>
+  <%= link_to song.title, band_song_path(@band, song) %>
+<% end %>
