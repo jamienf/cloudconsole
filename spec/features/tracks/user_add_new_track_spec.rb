@@ -23,17 +23,16 @@ Acceptance Criteria
 
       expect(page).to have_content "Fill out the form below to add a new track"
       fill_in "Instrument", with: "Drums"
-      fill_in "Soundcloud", with: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/140638403&amp;color=ff9900&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"
+      fill_in "Soundcloud", with: '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/86614269&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>'
       click_button "Submit Track"
 
-      save_and_open_page
       click_link "Add New Track"
 
       expect(page).to have_content "Fill out the form below to add a new track"
       fill_in "Instrument", with: "Guitar"
-      fill_in "Soundcloud", with: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/86614532&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"
+      fill_in "Soundcloud", with: '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/114376654&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>'
       click_button "Submit Track"
-
+      save_and_open_page
       expect(page).to have_content "Drums"
       expect(page).to have_content "Guitar"
   end
