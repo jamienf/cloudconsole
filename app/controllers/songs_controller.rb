@@ -40,6 +40,13 @@ class SongsController < ApplicationController
     end
   end
 
+  def destroy
+    @band = Band.find(params[:band_id])
+    @song = @band.songs.find(params[:id])
+    @song.destroy
+    redirect_to band_path(@band)
+  end
+
   private
 
   def song_params
