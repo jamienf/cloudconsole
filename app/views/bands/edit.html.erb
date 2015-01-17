@@ -1,10 +1,13 @@
-<% if @band.errors.any? %>
-<div><% @band.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-  <% end %>
-  <% end %>
-
-  <h2>Fill out the form below to edit your band</h2>
-
-  <%= render "edit_band_form" %>
-  
+<div class="row">
+  <div class="large-6 columns">
+    <h2>Fill out the form below to edit your band</h2>
+      <% if @band.errors.any? %>
+        <div><% @band.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      <% end %>
+    <div class="panel">
+      <%= render "edit_band_form" %>
+    </div>
+  </div>
+</div>
