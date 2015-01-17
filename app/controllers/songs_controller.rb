@@ -20,6 +20,7 @@ class SongsController < ApplicationController
   def show
     @band = Band.find(params[:band_id])
     @song = @band.songs.find(params[:id])
+    @tracks = @song.tracks
   end
 
   def edit

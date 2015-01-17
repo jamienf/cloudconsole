@@ -1,0 +1,17 @@
+<%= form_for [@song, @track] do |f| %>
+
+<div>
+  <%= f.label :instrument %>
+  <%= f.text_field :instrument %>
+</div>
+
+<div>
+  <%= f.label :soundcloud %>
+  <%= f.text_field :soundcloud %>
+</div>
+
+<p>
+  <%= f.submit "Submit Track" %>
+</p>
+
+<% end %>

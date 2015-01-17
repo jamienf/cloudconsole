@@ -18,7 +18,7 @@ Acceptance Criteria
     @song = FactoryGirl.create(:song, band_id: @band.id)
   end
 
-  scenario "user successfully edits a song"do
+  scenario "user successfully edits a song" do
     sign_in_as(@user)
     visit band_song_path(@band, @song)
 
