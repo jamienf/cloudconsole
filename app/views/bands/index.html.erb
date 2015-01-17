@@ -1,6 +1,26 @@
-<%= link_to "Create new band", new_band_path %>
 
-<% @bands.each do |band| %>
-  <br>
-  <%= link_to band.name, band_path(band) %>
-<% end %>
+<div class="row">
+  <% @bands.each do |band| %>
+  <div class="large-4 columns">
+    <img src="http://placehold.it/400x300&text=[img]" />
+    <h4><%= link_to band.name, band_path(band) %></h4>
+    <p><%= band.bio %></p>
+  </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+
+    <div class="panel">
+      <h4>Create a new band here!</h4>
+        <%= button_to "Create new band", new_band_path, class: "radius button right", method: :get %>
+      <div class="row">
+        <div class="large-9 columns">
+          <p>Starting a new band is easy! Click the button to the right, fill out the form and add your band members!</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,6 +1,4 @@
 class Track < ActiveRecord::Base
-  VALID_SOUNDCLOUD
-
   belongs_to :song
 
   validates :instrument,
