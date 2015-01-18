@@ -1,15 +1,55 @@
-<h2><%= @band.name %></h2>
-<p><%= @band.bio %></p>
-<p><%= @band.genre %></p>
+<br/>
+<div class="row">
+  <div class="large-12 columns">
 
-<%= link_to "Edit Band", edit_band_path(@band) %>
-<%= link_to "Delete Band", band_path(@band), method: :delete %>
+<!-- Side Bar -->
 
-<br>
+    <div class="large-4 small-12 columns">
 
-<%= link_to "Add New Song", new_band_song_path(@band) %>
+      <img src="http://placehold.it/500x500&text=Logo">
 
-<% @songs.each do |song| %>
-  <br>
-  <%= link_to song.title, band_song_path(@band, song) %>
-<% end %>
+      <div class="hide-for-small panel">
+        <h3><%= @band.name %></h3>
+        <h5><%= @band.genre %></h5>
+        <h5 class="subheader"><%= @band.bio %></h5>
+      </div>
+
+      <div class="panel callout radius">
+        <strong>Band Members <%= link_to "Edit"%></strong>
+        <h6> Placeholder 1 </h6>
+        <h6> Placeholder 2 </h6>
+        <h6> Placeholder 3 </h6>
+        <h6> Placeholder 4 </h6>
+      </div>
+
+      <div class="panel callout radius">
+        <strong>Band Settings</strong>
+        <h6><%= link_to "Add New Song", new_band_song_path(@band) %></h6>
+        <h6><%= link_to "Edit Band", edit_band_path(@band) %></h6>
+        <h6><%= link_to "Delete Band", band_path(@band), method: :delete, data: { confirm: "Are you sure?"} %></h6>
+      </div>
+    </div>
+
+<!-- End Side Bar -->
+
+  <!-- Song List -->
+    <div class="large-8 columns">
+      <div class="row">
+        <div class="large-12 columns">
+          <% @songs.each do |song| %>
+            <div class="panel">
+              <div class="row">
+                <div class="large-10 small-6 columns">
+                  <strong><%= link_to song.title, band_song_path(@band, song) %><hr/></strong>
+                  Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    <!-- End Song List -->
+
+  </div>
+</div>

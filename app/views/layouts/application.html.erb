@@ -1,44 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>punch_in</title>
+  <title>Mixit</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag 'custom', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-  <nav class="top-bar">
+
+
+<div class="row">
+  <div class="nav-bar right"></div>
+  <h1><%= link_to 'miXit', root_path %></h1>
+</div>
+
+<div class="contain-to-grid sticky">
+  <nav class="top-bar" data-topbar>
     <ul class="title-area">
+      <!-- Title Area -->
       <li class="name">
-        <h1><a href="/">punch_in</a></h1>
       </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
     </ul>
 
     <section class="top-bar-section">
+      <!-- Right Nav Section -->
       <ul class="right">
+        <li class="divider"></li>
+        <li class="divider"></li>
+        <li><a href="#">Main Item 1</a></li></li>
+        <li class="divider"></li>
+        <li><a href="#">Main Item 2</a></li></li>
+        <li class="divider"></li>
         <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
       </ul>
+
+      <ul class="left">
+        <li class="divider"></li>
+        <li class="divider"></li>
+        <li><a href="#">Main Item 1</a></li></li>
+        <li class="divider"></li>
+        <li><a href="#">Main Item 2</a></li></li>
+        <li class="divider"></li>
+        <li class="has-dropdown"></li>
+      </ul>
+
+
     </section>
   </nav>
+</div>
+
+
+
 
   <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
+  <div class="flash flash-<%= key %>">
+    <%= value %>
+  </div>
   <%- end -%>
 
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>
   <%= javascript_tag do %>
-    $(function(){
-      $(document).foundation();
-    });
+  $(function(){
+    $(document).foundation();
+  });
   <% end %>
   <%= yield :extra_footer %>
 </body>

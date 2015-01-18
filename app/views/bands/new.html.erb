@@ -1,3 +1,14 @@
-<p> Fill out the form below to create a new band </p>
 
-<%= render "new_band_form" %>
+<div class="row">
+  <div class="large-6 columns">
+    <p> Fill out the form below to create a new band </p>
+      <% if @band.errors.any? %>
+        <%  @band.errors.full_messages.each do |msg| %>
+          <li>  <%= msg %>  </li>
+        <% end %>
+      <% end %>
+    <div class="panel">
+      <%= render "new_band_form" %>
+    </div>
+  </div>
+</div>

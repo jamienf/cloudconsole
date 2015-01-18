@@ -1,15 +1,39 @@
-<h2><%= @song.title %></h2>
-<p><%= @song.tempo %></p>
-
-<%= link_to "Edit Song", edit_band_song_path(@band, @song) %>
-<%= link_to "Delete Song", band_song_path(@band, @song), method: :delete %>
-
-<br>
-
-<%= link_to "Add New Track", new_song_track_path(@song) %>
-
-<% @tracks.each do |track| %>
-<br>
-  <%= track.instrument %>
-  <iframe width="70%" height="150" scrolling="no" frameborder="no" src="<%= track.soundcloud %>&single_active=false"></iframe>
-<% end %>
+<div class="row">
+  <br>
+  <div class="large-3 columns ">
+    <div class="panel">
+      <a href="#"><img src="http://placehold.it/300x240&text=[img]" /></a>
+        <h4><%= @song.title %></h4>
+        <h4><%= @band.name %></h4>
+      <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+        <section class="section">
+          <p>Tempo: <%= @song.tempo %></p>
+          <h5>Band Members</h5>
+        </section>
+        <section class="section">
+          <h5 class="title"><a href="#">Section 2</a></h5>
+        </section>
+      </div>
+    </div>
+    
+    <div class="panel callout radius">
+      <strong>Song Settings</strong>
+      <h6><%= link_to "Add New Track", new_song_track_path(@song) %></h6>
+      <h6><%= link_to "Edit Song", edit_band_song_path(@band, @song) %></h6>
+      <h6><%= link_to "Delete Song", band_song_path(@band, @song), method: :delete, data: { confirm: "Are you sure?"} %></h6>
+    </div>
+  </div>
+  <div class="large-9 columns">
+    <div class="row">
+      <div class="large-12 columns">
+        <h2> Tracks </h2>
+        <% @tracks.each do |track| %>
+        <h4><strong><%= track.instrument %></strong></h4>
+          <iframe width="100%" height="150" scrolling="no" frameborder="no" src="<%= track.soundcloud %>&single_active=false"></iframe>
+        <br>
+        <% end %>
+      </div>
+    </div>
+    <hr />
+  </div>
+</div>
