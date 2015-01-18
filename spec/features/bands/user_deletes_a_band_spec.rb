@@ -13,13 +13,11 @@ Acceptance Criteria
   before :each do
     @user = FactoryGirl.create(:user)
     @band1 = FactoryGirl.create(:band)
-    @band2 = FactoryGirl.create(:band)
   end
 
   scenario "a user deletes a band successfully" do
     sign_in_as(@user)
-
-    click_link @band1.name
+    create_band(@band1)
 
     click_link "Delete Band"
     expect(page).to have_content "Your band has been successfully deleted."

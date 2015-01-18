@@ -18,8 +18,7 @@ Acceptance Criteria
     band = FactoryGirl.create(:band)
     song = FactoryGirl.create(:song)
     sign_in_as(user)
-
-    click_link band.name
+    create_band(band)
 
     click_link "Add New Song"
 
@@ -37,8 +36,8 @@ Acceptance Criteria
     band = FactoryGirl.create(:band)
     song = FactoryGirl.create(:song)
     sign_in_as(user)
+    create_band(band)
 
-    click_link band.name
     click_link "Add New Song"
 
     expect(page).to have_content "Fill out the form below to add a new song"

@@ -1,7 +1,7 @@
 class Band < ActiveRecord::Base
-  has_many :bandmembers
-  has_many :users, through: :bandmembers
-  has_many :songs
+  has_many :band_members, dependent: :destroy
+  has_many :users, through: :band_members
+  has_many :songs, dependent: :destroy
 
   validates :name,
     presence: true

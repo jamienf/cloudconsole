@@ -2,7 +2,11 @@
 <div class="row">
   <% @bands.each do |band| %>
   <div class="large-4 columns">
-    <img src="http://placehold.it/400x300&text=[img]" />
+
+    <div class="image-frame">
+      <%= link_to image_tag("http://lorempixel.com/output/nightlife-q-c-300-200-5.jpg"), band_path(band) %>
+    </div>
+
     <h4><%= link_to band.name, band_path(band) %></h4>
     <p><%= band.bio %></p>
   </div>
