@@ -17,7 +17,7 @@ Acceptance Criteria
     band = FactoryGirl.create(:band)
     sign_in_as(user)
 
-    click_link "Create new band"
+    click_button "Create new band"
     expect(page).to have_content "Fill out the form below to create a new band"
     fill_in "Name", with: band.name
     fill_in "Bio", with: band.bio
@@ -34,7 +34,7 @@ Acceptance Criteria
     user = FactoryGirl.create(:user)
     sign_in_as(user)
 
-    click_link "Create new band"
+    click_button "Create new band"
     expect(page).to have_content "Fill out the form below to create a new band"
     click_button "Submit Band"
 
