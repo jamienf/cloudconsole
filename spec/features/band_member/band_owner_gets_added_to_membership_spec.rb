@@ -13,8 +13,7 @@ Acceptance Criteria
 
   before :each do
     @user1 = FactoryGirl.create(:user)
-    @band1 = FactoryGirl.create(:band, )
-    @
+    @band1 = FactoryGirl.create(:band)
   end
 
   scenario "Band creator becomes band owner" do
@@ -27,21 +26,27 @@ Acceptance Criteria
     fill_in "Genre", with: @band1.genre
     click_button "Submit Band"
 
-    expect(page).to have_content "#{@user1.email} (Band Owner)"
+    expect(page).to have_content "#{@user1.email}"
     expect(page).to have_link "Add Band Member"
   end
 
-  scenario "Band creator becomes band owner", focus: true do
+  scenario "Band owner cannot edit band they do not own" do
     sign_in_as(@user1)
 
     click_button "Create new band"
     expect(page).to have_content "Fill out the form below to create a new band"
-    fill_in "Name", with: @band1.name
+    fill_in "Name", with: "Pirates!"
     fill_in "Bio", with: @band1.bio
     fill_in "Genre", with: @band1.genre
     click_button "Submit Band"
 
-    expect(page).to have_content "#{@user1.email} (Band Owner)"
-    expect(page).to have_link "Add Band Member"
+    click_link "Sign Out"
+
+    click_link "Pirates!"
+    expect(page).to have_content "#{@user1.email}"
+    expect(page).to_not have_link "Add Band Member"
+    expect(page).to_not have_link "Add New Song"
+    expect(page).to_not have_link "Edit Band"
+    expect(page).to_not have_link "Delete Band"
   end
 end

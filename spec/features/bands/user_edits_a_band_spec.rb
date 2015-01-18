@@ -20,8 +20,8 @@ Acceptance Criteria
 
     scenario "user successfully edits a band" do
       sign_in_as(@user)
-
-      click_link @band1.name
+      create_band(@band1)
+      
       expect(page).to have_content @band1.name
       click_link "Edit Band"
 
