@@ -10,14 +10,19 @@ class BandsController < ApplicationController
 
   def new
     @band = Band.new
+    @band_owner = Band.new
   end
 
   def create
     @band = Band.new(band_params)
-
     if @band.save
-      redirect_to band_path(@band)
-      flash[:notice] = "Your band has been successfully added."
+      @band_owner = BandMember.new(user_id: current_user.id, band_id: @band.id, owner: true)
+
+      if @band_owner.save
+        redirect_to band_path(@band)
+        flash[:notice] = "Your band has been successfully added."
+      end
+
     else
       render :new
     end

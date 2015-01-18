@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :bands do
     resources :songs, only: [:new, :create, :show, :edit, :update, :destroy]
+    resources :band_members, only: [:create]
   end
 
   resources :song do

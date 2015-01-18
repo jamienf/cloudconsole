@@ -1,4 +1,4 @@
-class Bandmember < ActiveRecord::Base
+class BandMember < ActiveRecord::Base
   belongs_to :user
   belongs_to :band
 

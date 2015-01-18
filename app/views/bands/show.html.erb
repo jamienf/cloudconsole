@@ -16,10 +16,14 @@
 
       <div class="panel callout radius">
         <strong>Band Members <%= link_to "Edit"%></strong>
-        <h6> Placeholder 1 </h6>
-        <h6> Placeholder 2 </h6>
-        <h6> Placeholder 3 </h6>
-        <h6> Placeholder 4 </h6>
+        <% @band.users.each do |member| %>
+          <% if @band.band_members.find_by(owner: true) %>
+            <h6><%= link_to "Add Band Member" %></h6>
+            <h6><%= member.email %> (Band Owner)</h6>
+          <% else %>
+            <h6><%= member.email %></h6>
+        <% end %>
+        <% end %>
       </div>
 
       <div class="panel callout radius">

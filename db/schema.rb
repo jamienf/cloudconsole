@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150116210614) do
+ActiveRecord::Schema.define(version: 20150118005110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150116210614) do
     t.integer  "band_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "owner",      null: false
   end
 
   create_table "bands", force: :cascade do |t|
