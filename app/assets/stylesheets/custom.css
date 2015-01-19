@@ -44,3 +44,8 @@ body {
   -ms-transform: rotate(3deg);
   transform: rotate(3deg);
 }
+
+.actionButtons dd {
+  float:left;
+  margin-right:60px;
+}

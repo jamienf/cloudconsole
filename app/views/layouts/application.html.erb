@@ -5,6 +5,43 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= stylesheet_link_tag 'custom', media: 'all' %>
   <%= csrf_meta_tags %>
+
+  <head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="http://w.soundcloud.com/player/api.js"></script>
+  <script>
+  $(document).ready(function() {
+    var iFrames = []
+    var playing = false
+
+    $('iframe').each(function() {
+      var widget = SC.Widget(this.id);
+      iFrames.push(widget);
+    });
+
+    function playAllSongs() {
+      for ( var i = 0; i < iFrames.length; i++) {
+        iFrames[i].toggle()
+      };
+    };
+
+    function togglePlayButton() {
+      var $button = $('.play');
+      playing = ! playing
+      if (playing) {
+        $button.text('Pause')
+      } else {
+        $button.text('Play')
+      };
+    };
+
+
+    $('.play').click(function() {
+      playAllSongs();
+      togglePlayButton();
+    });
+  });
+  </script>
 </head>
 <body>
 
@@ -73,5 +110,8 @@
   });
   <% end %>
   <%= yield :extra_footer %>
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
