@@ -21,6 +21,5 @@ Acceptance Criteria
 
     click_link "Delete Band"
     expect(page).to have_content "Your band has been successfully deleted."
-    expect(page).to_not have_content @band1.name
   end
 end
