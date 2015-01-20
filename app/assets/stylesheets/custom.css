@@ -49,3 +49,7 @@ body {
   float:left;
   margin-right:60px;
 }
+
+.notice {
+  text-align: center;
+}

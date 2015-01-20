@@ -9,8 +9,13 @@ class BandsController < ApplicationController
   end
 
   def new
-    @band = Band.new
-    @band_owner = Band.new
+    if signed_in?
+      @band = Band.new
+      @band_owner = Band.new
+    else
+      flash[:notice] = "Please sign in to create a new band"
+      redirect_to root_path
+    end
   end
 
   def create
