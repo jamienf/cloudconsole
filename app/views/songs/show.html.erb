@@ -2,7 +2,9 @@
   <br>
   <div class="large-3 columns ">
     <div class="panel">
-      <a href="#"><img src="http://placehold.it/300x240&text=[img]" /></a>
+      <div class="image-frame">
+        <a href="#"><img src="<%= @band.profile_photo %>" width="200" /></a>
+      </div>
         <h4><%= @song.title %></h4>
         <h4><%= @band.name %></h4>
       <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">

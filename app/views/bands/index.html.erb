@@ -4,7 +4,7 @@
   <div class="large-4 columns">
 
     <div class="image-frame">
-      <%= link_to image_tag("http://lorempixel.com/output/nightlife-q-c-300-200-5.jpg"), band_path(band) %>
+      <%= link_to image_tag(band.profile_photo), band_path(band) %> 
     </div>
 
     <h4><%= link_to band.name, band_path(band) %></h4>
