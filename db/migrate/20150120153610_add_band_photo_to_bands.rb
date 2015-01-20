@@ -1,5 +1,5 @@
 class AddBandPhotoToBands < ActiveRecord::Migration
   def change
-    add_column :bands, :profile_photo, :string
+    add_column :bands, :band_photo, :string
   end
 end

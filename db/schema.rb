@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(version: 20150120153610) do
   end
 
   create_table "bands", force: :cascade do |t|
-    t.string   "name",                          null: false
-    t.text     "bio",                           null: false
-    t.string   "genre",                         null: false
-    t.boolean  "private",       default: false, null: false
+    t.string   "name",                       null: false
+    t.text     "bio",                        null: false
+    t.string   "genre",                      null: false
+    t.boolean  "private",    default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "profile_photo"
+    t.string   "band_photo"
   end
 
   create_table "songs", force: :cascade do |t|
