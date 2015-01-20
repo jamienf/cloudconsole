@@ -3,6 +3,8 @@ class Band < ActiveRecord::Base
   has_many :users, through: :band_members
   has_many :songs, dependent: :destroy
 
+  mount_uploader :band_photo, BandPhotoUploader
+
   validates :name,
     presence: true
 

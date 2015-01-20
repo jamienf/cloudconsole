@@ -15,6 +15,16 @@
   <%= f.text_area :genre %>
 </div>
 
+<div>
+  <%= f.label :band_photo, "Change your Photo" %>
+  <%= f.file_field :band_photo %>
+</div>
+
+<div>
+  <%= f.label :remove_band_photo, "Remove your Photo" %>
+  <%= f.check_box :remove_band_photo %>
+</div>
+
 <p>
   <%= f.submit "Update Band" %>
 </p>

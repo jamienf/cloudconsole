@@ -15,6 +15,8 @@ class BandsController < ApplicationController
 
   def create
     @band = Band.new(band_params)
+    uploader = BandPhotoUploader.new
+    uploader.store!(params[:band_photo])
     if @band.save
       @band_owner = BandMember.new(user_id: current_user.id, band_id: @band.id, owner: true)
 
@@ -53,6 +55,6 @@ class BandsController < ApplicationController
   private
 
   def band_params
-    params.require(:band).permit(:name, :bio, :genre)
+    params.require(:band).permit(:name, :bio, :genre, :band_photo)
   end
 end
