@@ -8,9 +8,10 @@
     </div>
 
     <h4><%= link_to band.name, band_path(band) %></h4>
-    <p><%= truncate( "#{band.bio}", length: 30 ) %></p>
+    <p><%= truncate( "#{band.bio}", length: 42 ) %></p>
   </div>
   <% end %>
+  <%= paginate @bands %>
 </div>
 
 <div class="row">
