@@ -1,7 +1,14 @@
 class SongsController < ApplicationController
   def new
     @band = Band.find(params[:band_id])
-    @song = Song.new
+    if signed_in?
+      if @band.band_members.find_by(user_id: current_user.id)
+        @song = Song.new
+      end
+    else
+      flash[:notice] = "You are not authorized to access that page!"
+      redirect_to root_path
+    end
   end
 
   def create
