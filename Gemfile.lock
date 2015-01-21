@@ -343,7 +343,7 @@ DEPENDENCIES
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
-  kaminari (~> 0.16.1)
+  kaminari
   launchy
   pg
   rails (= 4.2.0)
