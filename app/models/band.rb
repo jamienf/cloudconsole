@@ -14,4 +14,8 @@ class Band < ActiveRecord::Base
 
   validates :genre,
     presence: true
+
+    def self.search(query)
+      where("name like ? OR bio ILIKE ? OR genre ILIKE ?", "%" + query + "%", "%" + query + "%", "%" + query + "%")
+    end
 end
