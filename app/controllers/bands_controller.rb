@@ -1,9 +1,9 @@
 class BandsController < ApplicationController
   def index
     if params[:query]
-      @bands = Band.search(params[:query])
+      @bands = Band.search(params[:query]).page params[:page]
     else
-      @bands = Band.all
+      @bands = Band.all.page params[:page]
     end
   end
 
