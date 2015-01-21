@@ -4,6 +4,7 @@
   <title>Mixit</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= stylesheet_link_tag 'custom', media: 'all' %>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <%= csrf_meta_tags %>
 
   <head>
@@ -48,7 +49,7 @@
 
 <div class="row">
   <div class="nav-bar right"></div>
-  <h1><%= link_to 'miXit', root_path %></h1>
+  <h1><%= link_to 'MixIt', root_path %></h1>
 </div>
 
 <div class="contain-to-grid sticky">
@@ -64,25 +65,39 @@
       <!-- Right Nav Section -->
       <ul class="right">
         <li class="divider"></li>
-        <li class="divider"></li>
-        <li><a href="#">Main Item 1</a></li></li>
-        <li class="divider"></li>
-        <li><a href="#">Main Item 2</a></li></li>
+        <li class="has-form">
+          <div class="row collapse">
+            <div class="large-8 small-9 columns">
+              <%= form_tag bands_path, method: :get do %>
+              <%= text_field_tag :query %>
+            </div>
+            <div class="large-4 small-3 columns">
+              <%= submit_tag "Search", class: "alert button expand" %>
+              <% end %>
+            </div>
+
+          </div>
+
+        </li>
         <li class="divider"></li>
         <%- if current_user -%>
+        <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+        <li class="divider"></li>
         <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
         <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li class="divider"></li>
         <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
+        <li class="divider"></li>
       </ul>
 
       <ul class="left">
         <li class="divider"></li>
         <li class="divider"></li>
-        <li><a href="#">Main Item 1</a></li></li>
+        <li><%= link_to 'Home', root_path %></li></li>
         <li class="divider"></li>
-        <li><a href="#">Main Item 2</a></li></li>
+        <li><a href="#">Random Song</a></li></li>
         <li class="divider"></li>
         <li class="has-dropdown"></li>
       </ul>
@@ -91,7 +106,6 @@
     </section>
   </nav>
 </div>
-
 <div class="notice">
   <% if notice %>
     <p class="alert-box alert-success"><%= notice %></p>
