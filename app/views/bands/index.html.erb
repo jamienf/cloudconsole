@@ -8,7 +8,7 @@
     </div>
 
     <h4><%= link_to band.name, band_path(band) %></h4>
-    <p><%= band.bio %></p>
+    <p><%= truncate( "#{band.bio}", length: 30 ) %></p>
   </div>
   <% end %>
 </div>
