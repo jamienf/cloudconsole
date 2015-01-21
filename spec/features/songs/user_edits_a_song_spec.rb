@@ -20,7 +20,13 @@ Acceptance Criteria
 
   scenario "user successfully edits a song" do
     sign_in_as(@user)
-    visit band_song_path(@band, @song)
+    create_band(@band)
+    click_link "Add New Song"
+
+    expect(page).to have_content "Fill out the form below to add a new song"
+    fill_in "Title", with: @song.title
+    fill_in "Tempo", with: @song.tempo
+    click_button "Submit Song"
 
     click_link "Edit Song"
 
