@@ -5,12 +5,16 @@ class Track < ActiveRecord::Base
     presence: true
 
   validates :soundcloud,
-    presence: true
+    numericality: { only_integer: true }
 
-  # def iframe_remover(iframe)
-  #   html = iframe.gsub!(/"/, '').gsub!(/\s+/, "").gsub!('<iframewidth=70%height=100scrolling=noframeborder=nosrc=', '').gsub!('></iframe>', '')+"&single_active=false"
-  #   sa = "&single_active=false"
-  #   final = html + sa
-  #   final
-  # end
+  def soundcloud_url
+    SoundCloud.new(
+    client_id: ENV.fetch("SC_CLIENT_ID"),
+    client_secret: ENV.fetch("SC_CLIENT_SECRET")
+    )
+  end
 end
+
+
+# format: { with: VALID_SOUNDCLOUD_URL, message: "Please use the valid Soundcloud URL address."}
+# VALID_SOUNDCLOUD_URL = /https:\/\/soundcloud.com\/[A-Z0-9._%+-]+\/[A-Z0-9._%+-]+/i

@@ -9,7 +9,12 @@ class TracksController < ApplicationController
     @band = @song.band.id
     @track = Track.new(track_params)
     @track.song_id = @song.id
-    @track.soundcloud = @track.soundcloud.gsub!(/"/, '').gsub!(/\s+/, "").gsub!('<iframewidth=100%height=166scrolling=noframeborder=nosrc=https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/', '').gsub!('&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false></iframe>', '')
+
+    track_url = @track.soundcloud
+
+    soundcloud_api = @track.soundcloud_url.get('/resolve', url: track_url)
+  
+    @track.soundcloud = soundcloud_api.id
 
     if @track.save
       flash[:notice] = "Track successfully saved"
