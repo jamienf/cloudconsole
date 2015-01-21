@@ -29,6 +29,15 @@ class TracksController < ApplicationController
 
   end
 
+  def destroy
+    @song = Song.find(params[:song_id])
+    @band = @song.band_id
+    @track = Track.find(params[:id])
+    @track.destroy
+    redirect_to band_song_path(@band, @song)
+    flash[:notice] = "Your track has been successfully removed."
+  end
+
   private
 
   def track_params

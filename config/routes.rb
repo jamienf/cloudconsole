@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :song do
-    resources :tracks, only: [:new, :create]
+    resources :tracks, only: [:new, :create, :destroy]
   end
 end

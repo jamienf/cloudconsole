@@ -2,20 +2,22 @@
   <br>
   <div class="large-3 columns ">
     <div class="panel">
-      <a href="#">
+
         <div class="image-frame">
-          <img src="<%= @band.band_photo %>" />
+          <%= link_to image_tag(@band.band_photo), band_path(@band) %>
         </div>
-      </a>
-        <h4><%= @song.title %></h4>
+
         <h4><%= @band.name %></h4>
+        <h5>Song: <%= @song.title %></h5>
       <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
         <section class="section">
           <p>Tempo: <%= @song.tempo %></p>
           <h5>Band Members</h5>
         </section>
         <section class="section">
-          <h5 class="title"><a href="#">Section 2</a></h5>
+          <% @band.users.each do |member| %>
+            <h6><%= member.email %></h6>
+          <% end %>
         </section>
       </div>
     </div>
@@ -47,6 +49,11 @@
             frameborder="no">
           </iframe>
         <br>
+        <% if signed_in? %>
+        <% if @band.band_members.find_by(user_id: current_user.id) %>
+        <%= link_to "Delete Track", song_track_path(@song, track), method: :delete, data: { confirm: "Are you sure?"} %>
+        <% end %>
+        <% end %>
         <% end %>
       </div>
     </div>
