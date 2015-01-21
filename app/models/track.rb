@@ -14,7 +14,3 @@ class Track < ActiveRecord::Base
     )
   end
 end
-
-
-# format: { with: VALID_SOUNDCLOUD_URL, message: "Please use the valid Soundcloud URL address."}
-# VALID_SOUNDCLOUD_URL = /https:\/\/soundcloud.com\/[A-Z0-9._%+-]+\/[A-Z0-9._%+-]+/i

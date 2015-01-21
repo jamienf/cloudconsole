@@ -8,7 +8,7 @@
       <div class="image-frame">
         <img src="<%= @band.band_photo %>">
       </div>
-      
+
       <div class="hide-for-small panel">
         <h3><%= @band.name %></h3>
         <h5><%= @band.genre %></h5>
@@ -37,7 +37,7 @@
               <h6><%= link_to "Edit Band", edit_band_path(@band) %></h6>
               <h6><%= link_to "Delete Band", band_path(@band), method: :delete, data: { confirm: "Are you sure?"} %></h6>
             </div>
-        <% end %>
+          <% end %>
         <% end %>
     </div>
 

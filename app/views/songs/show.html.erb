@@ -19,13 +19,16 @@
         </section>
       </div>
     </div>
-
-    <div class="panel callout radius">
-      <strong>Song Settings</strong>
-      <h6><%= link_to "Add New Track", new_song_track_path(@song) %></h6>
-      <h6><%= link_to "Edit Song", edit_band_song_path(@band, @song) %></h6>
-      <h6><%= link_to "Delete Song", band_song_path(@band, @song), method: :delete, data: { confirm: "Are you sure?"} %></h6>
-    </div>
+    <% if signed_in? %>
+      <% if @band.band_members.find_by(user_id: current_user.id) %>
+        <div class="panel callout radius">
+          <strong>Song Settings</strong>
+          <h6><%= link_to "Add New Track", new_song_track_path(@song) %></h6>
+          <h6><%= link_to "Edit Song", edit_band_song_path(@band, @song) %></h6>
+          <h6><%= link_to "Delete Song", band_song_path(@band, @song), method: :delete, data: { confirm: "Are you sure?"} %></h6>
+        </div>
+      <% end %>
+    <% end %>
   </div>
   <div class="large-9 columns">
     <div class="row">
