@@ -118,6 +118,26 @@
 
   <%= yield %>
 
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>@ Jamie Francese </p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
   <%= javascript_include_tag 'application' %>
   <%= javascript_tag do %>
   $(function(){
