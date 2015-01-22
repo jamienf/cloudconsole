@@ -11,9 +11,10 @@
     <p><%= truncate( "#{band.bio}", length: 42 ) %></p>
   </div>
   <% end %>
-  <div class="paginate-center">
-    <%= paginate @bands %>
-  </div>
+</div>
+
+<div class="paginate-center">
+  <%= paginate @bands %>
 </div>
 
 <div class="row">
