@@ -2,6 +2,10 @@ body {
   background-color: #FFF;
 }
 
+.image-size{
+  max-width: 200px;
+}
+
 .image-frame{
   position:relative;
   z-index:1;
