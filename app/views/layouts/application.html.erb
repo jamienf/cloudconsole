@@ -97,6 +97,20 @@
         <li class="divider"></li>
         <li><%= link_to 'Home', root_path %></li></li>
         <li class="divider"></li>
+
+
+        <% if signed_in? %>
+          <li class="has-dropdown">
+          <a href="#">Your Bands</a>
+            <ul class="dropdown">
+              <% current_user.bands.each do |user_band| %>
+                <li><%= link_to user_band.name, band_path(user_band) %></li></li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+
+        <li class="divider"></li>
         <li><a href="#">Random Song</a></li></li>
         <li class="divider"></li>
         <li class="has-dropdown"></li>
