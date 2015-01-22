@@ -4,7 +4,7 @@
     <div class="panel">
 
         <div class="image-frame">
-          <%= link_to image_tag(@band.band_photo), band_path(@band) %>
+          <%= link_to image_tag(@band.band_photo.songpage_img), band_path(@band) %>
         </div>
 
         <h4><%= @band.name %></h4>
