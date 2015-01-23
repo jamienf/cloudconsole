@@ -1,17 +1,32 @@
-<br>
 <div class="row">
-  <% @bands.each do |band| %>
-  <div class="large-4 columns">
+  <div class="large-12 hide-for-small">
 
-    <div class="image-frame">
-      <%= link_to image_tag(band.band_photo.homepage_img), band_path(band) %>
-    </div>
 
-    <h4><%= link_to band.name, band_path(band) %></h4>
-    <p><%= truncate( "#{band.bio}", length: 42 ) %></p>
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="image2 module">
+          <h2><span class='spacer'>LISTEN</span>
+              <span class='spacer'>RECORD</span>
+              <span class='spacer'>MIX</span>
+          </h2>
+        </div>
+        <br>
+      </div>
+
   </div>
-  <% end %>
-</div>
+    <% @bands.each do |band| %>
+      <div class="large-4 columns">
+        <div class="image-frame">
+          <div class="image">
+            <%= link_to image_tag(band.band_photo.homepage_img), band_path(band) %>
+          </div>
+        </div>
+
+        <h4><%= link_to band.name, band_path(band) %></h4>
+        <p><%= truncate( "#{band.bio}", length: 42 ) %></p>
+      </div>
+    <% end %>
+  </div>
 
 <div class="paginate-center">
   <%= paginate @bands %>
