@@ -1,13 +1,11 @@
-<br>
 <div class="row">
   <div class="large-12 hide-for-small">
 
 
     <div class="row">
       <div class="large-12 columns">
-        <div class="image">
-          <img src="http://www.fitzherbertdiscos.com/images/slider-photos/console-2.jpg" alt="" />
-          <h2><span class='spacer'> MIX IT </span></h2>
+        <div class="image module">
+          <h2><span class='spacer'>PLAY IT.   RECORD IT.   MIX IT.</span></h2>
         </div>
         <hr>
       </div>
@@ -15,9 +13,10 @@
   </div>
     <% @bands.each do |band| %>
       <div class="large-4 columns">
-
         <div class="image-frame">
-          <%= link_to image_tag(band.band_photo.homepage_img), band_path(band) %>
+          <div class="image">
+            <%= link_to image_tag(band.band_photo.homepage_img), band_path(band) %>
+          </div>
         </div>
 
         <h4><%= link_to band.name, band_path(band) %></h4>
