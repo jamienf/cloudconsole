@@ -1,5 +1,5 @@
 body {
-  background-color: #fff;
+  background-color: #F2F2F2;
 }
 
 .image-size{
@@ -98,7 +98,7 @@ h2 {
   width: 100%;
   padding:1px;
   border:1px solid #021a40;
-  background-color:#333;
+  background-color:#F16533;
   opacity: .75;
 }
 
@@ -132,8 +132,12 @@ h2 span.spacer {
     rgba(0, 0, 0, 0.3),
     rgba(0, 0, 0, 0.9)
     ),
-    url("http://www.fitzherbertdiscos.com/images/slider-photos/console-2.jpg");
-    background-size: cover;
-    top: -.1px;
-    height: 300px;
-  }
+  url("http://www.fitzherbertdiscos.com/images/slider-photos/console-2.jpg");
+  background-size: cover;
+  top: -.1px;
+  height: 300px;
+}
+
+.logo {
+  width: 110px;
+}
