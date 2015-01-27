@@ -13,6 +13,7 @@ Acceptance Criteria
 
   before :each do
     @user1 = FactoryGirl.create(:user)
+    @user2 = FactoryGirl.create(:user)
     @band1 = FactoryGirl.create(:band)
   end
 
@@ -27,6 +28,11 @@ Acceptance Criteria
     click_button "Submit Band"
 
     expect(page).to have_content "#{@user1.email}"
-    expect(page).to have_link "Add Band Member"
+    click_link "Add Band Member"
+    expect(page).to have_content "Fill out the form below to add a band member"
+    fill_in "email", with: @user2.email
+    click_button "Submit Member"
+    expect(page).to have_content "#{@user1.email}"
+    expect(page).to have_content "#{@user2.email}"
   end
 end
