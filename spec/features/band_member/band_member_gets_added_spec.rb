@@ -17,7 +17,7 @@ Acceptance Criteria
     @band1 = FactoryGirl.create(:band)
   end
 
-  scenario "Band owner adds a new member" do
+  scenario "Band owner adds a new member", focus: true do
     sign_in_as(@user1)
 
     click_button "Create new band"
@@ -29,9 +29,11 @@ Acceptance Criteria
 
     expect(page).to have_content "#{@user1.email}"
     click_link "Add Band Member"
+
     expect(page).to have_content "Fill out the form below to add a band member"
     fill_in "email", with: @user2.email
     click_button "Submit Member"
+
     expect(page).to have_content "#{@user1.email}"
     expect(page).to have_content "#{@user2.email}"
   end
