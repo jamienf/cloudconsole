@@ -50,3 +50,52 @@ January 14th, 2015
 January 15th, 2015
 
 - Added ability to remove bands
+- Added ability to add, remove and edit songs
+- Added song validations
+
+January 16th, 2015
+
+- Created a way to extract song ID from iframe.
+  a. Currently this is achieved by creating 4 gsubs to remove what I need to.
+  b. I want to add the Soundcloud API in the future to get this ID easier.
+- Added ability to add new Soundcloud tracks
+
+January 17th, 2015
+
+- Added styling to the index, new and edit band forms, and song page.
+- Fixed tests
+
+January 18th, 2015
+
+- Band creators now will become the band owner automatically.
+- Only band members can edit band settings.
+
+January 19th, 2015
+
+- Created a Jquery button to play all tracks at the same time.
+  a. This was required so that bands can play their tracks in sync.
+- Pushed to Heroku
+
+January 20th, 2015
+
+- Implemented Carrierwave for bands to upload photos
+- Added AWS for bands to store data on S3
+- Added ability for band members only to add new tracks
+
+January 21st, 2015
+
+- Implemented Soundcloud API to extract song ID's easier
+- Band memebers can delete song tracks
+- Added more styling
+- Implemented search on index
+- Implemented pagination and truncation
+
+January 22nd, 2015
+
+- Added rmagick gem for image resizing
+- Added ability for user to view all bands they belong to.
+- More styling
+
+January 23rd, 2015
+
+- More styling changes
