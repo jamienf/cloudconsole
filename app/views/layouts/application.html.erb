@@ -42,6 +42,27 @@
     });
   });
   </script>
+  <script>
+  $(document).ready(function() {
+    var iFrames = []
+    var playing = false
+
+    $('iframe').each(function() {
+      var widget = SC.Widget(this.id);
+      iFrames.push(widget);
+    });
+
+    function resetAllSongs() {
+      for ( var i = 0; i < iFrames.length; i++) {
+        iFrames[i].seekTo(0);
+      };
+    };
+
+    $('.reset').click(function() {
+      resetAllSongs();
+    });
+  });
+  </script>
 </head>
 <body>
 
