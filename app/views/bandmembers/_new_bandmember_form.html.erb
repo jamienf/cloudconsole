@@ -1,0 +1,11 @@
+<%= form_for @bandmember, url: band_bandmembers_path(@band) do |f| %>
+
+<div>
+  <input name="bandmember[email]" id="bandmember"></input>
+</div>
+
+<p>
+  <%= f.submit "Add Member" %>
+</p>
+
+<% end %>

@@ -13,7 +13,7 @@ body {
 }
 .image-frame img{
   padding: 4px;
-  background-color: #fff;
+  background-color: #;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -60,6 +60,11 @@ body {
   text-align: center;
 }
 
+.panel {
+  background: #fff;
+
+}
+
 .panel2 {
   border-style: solid;
   border-width: 1px;
@@ -67,7 +72,7 @@ body {
   margin-bottom: 1.25rem;
   padding: 1.25rem;
   text-align: left;
-  background: #f2f2f2;
+  background: #fff;
   }
 
 .image {
